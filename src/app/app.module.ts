@@ -5,12 +5,21 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, MatCardModule } from '@angular/material';
-import { RouterModule, Routes } from '@angular/router';
+import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, MatCardModule, MatBadgeModule, MatInputModule } from '@angular/material';
+import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+import { HeroesComponent } from './heroes/heroes.component';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { MessagesComponent } from './messages/messages.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeroesComponent,
+    HeroDetailComponent,
+    MessagesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -21,8 +30,11 @@ import { RouterModule, Routes } from '@angular/router';
     MatListModule,
     MatButtonModule,
     MatIconModule,
-    RouterModule,
-    MatCardModule
+    AppRoutingModule,
+    MatCardModule,
+    MatBadgeModule,
+    MatInputModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
