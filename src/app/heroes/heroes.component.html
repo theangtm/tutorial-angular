@@ -1,6 +1,6 @@
 <h2>My Heroes</h2>
 <mat-action-list role="list">
-    <mat-list-item *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)" role="listitem" >
+    <mat-list-item *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}" role="listitem" >
         <button mat-flat-button color="primary" > {{hero.id}} </button>
         <span matLine > {{hero.name}} </span>
     </mat-list-item>

@@ -1,13 +1,23 @@
-<mat-card *ngIf="hero" class="card-hero__wrapper" >
-    <mat-card-header class="card-hero__header">
-        <mat-card-title>{{hero.name | uppercase}} Details</mat-card-title>
-    </mat-card-header>
-    <mat-card-content class="card-hero__content">
-        <mat-form-field class="example-full-width">
-            <input matInput placeholder="Name" [(ngModel)]="hero.name" />
-        </mat-form-field>
-        <div>
-            <b>ID: </b> {{hero.id}}
-        </div>
-    </mat-card-content>
-</mat-card>
+<div *ngIf="hero">
+    <button mat-stroked-button aria-label="Back" (click)="goBack()"><mat-icon>arrow_back</mat-icon></button>
+
+    <br/><br/>
+    
+    <mat-card class="card-hero__wrapper" >
+        <mat-card-header class="card-hero__header">
+            <mat-card-title>{{hero.name | uppercase}} Details</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="card-hero__content">
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Name" [(ngModel)]="hero.name" />
+            </mat-form-field>
+            <div>
+                <b>ID: </b> {{hero.id}}
+            </div>
+        </mat-card-content>
+    </mat-card>
+    
+    <br/>
+    
+    <button mat-stroked-button aria-label="Save" (click)="save()"><mat-icon>save</mat-icon></button>
+</div>

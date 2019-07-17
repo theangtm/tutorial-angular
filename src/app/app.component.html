@@ -6,9 +6,8 @@
     
     <span class="menu-spacer"></span>
     <div>
-      <a mat-button > Accounts </a>
-      <a mat-button > Create Account </a>
-      <a mat-button > Contacts </a>
+      <a mat-button (click)="sidenav.close()" routerLink="/dashboard">Dashboard</a>
+      <a mat-button (click)="sidenav.close()" routerLink="/heroes">Heroes</a>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
