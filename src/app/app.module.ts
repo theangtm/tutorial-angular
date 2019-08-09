@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, MatCardModule, MatBadgeModule, MatInputModule } from '@angular/material';
+import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, MatCardModule, MatBadgeModule, MatInputModule, MatProgressSpinnerModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HeroesComponent } from './heroes/heroes.component';
@@ -35,6 +36,8 @@ import { InMemoryDataService } from './in-memory-data.service';
     MatCardModule,
     MatBadgeModule,
     MatInputModule,
+    MatProgressSpinnerModule,
+    FlexLayoutModule,
     FormsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(

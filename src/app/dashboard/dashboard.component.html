@@ -2,3 +2,8 @@
 <mat-action-list>
     <mat-list-item *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}" > {{hero.name}} </mat-list-item>
 </mat-action-list>
+
+<!-- loading spinner for dashboard does not work the same way as the rest of the page -->
+<div fxLayout="row" fxLayoutAlign="center center" *ngIf="!heroes">
+    <mat-progress-spinner  color="primary" mode="indeterminate"></mat-progress-spinner>
+</div>

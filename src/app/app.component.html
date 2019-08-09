@@ -21,13 +21,15 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content style="min-height: calc(100vh - 64px)">
-    <div class="container">
-      <h1>{{title}}</h1>
-      <mat-card>
-        <mat-card-content>
-          <router-outlet></router-outlet>
-        </mat-card-content>
-      </mat-card>
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="30px" fxLayoutAlign="center center">
+      <div fxFlex="90">
+        <h1>{{title}}</h1>
+        <mat-card>
+          <mat-card-content>
+            <router-outlet></router-outlet>
+          </mat-card-content>
+        </mat-card>
+      </div>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

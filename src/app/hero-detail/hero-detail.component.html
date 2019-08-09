@@ -21,3 +21,7 @@
     
     <button mat-stroked-button aria-label="Save" (click)="save()"><mat-icon>save</mat-icon></button>
 </div>
+
+<div fxLayout="row" fxLayoutAlign="center center" *ngIf="!hero">
+    <mat-progress-spinner  color="primary" mode="indeterminate"></mat-progress-spinner>
+</div>

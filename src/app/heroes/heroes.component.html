@@ -1,12 +1,11 @@
-<h2>My Heroes</h2>
+<h2 class="mat-h1">My Heroes</h2>
 <mat-action-list role="list">
     <mat-list-item *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}" role="listitem" >
-        <button mat-flat-button color="primary" > {{hero.id}} </button>
+        <a mat-flat-button color="primary" > {{hero.id}} </a>
         <span matLine > {{hero.name}} </span>
     </mat-list-item>
 </mat-action-list>
 
-<br/>
-<br/>
-
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+<div fxLayout="row" fxLayoutAlign="center center" *ngIf="!heroes">
+    <mat-progress-spinner  color="primary" mode="indeterminate"></mat-progress-spinner>
+</div>
