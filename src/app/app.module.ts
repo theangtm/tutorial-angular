@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, MatCardModule, MatBadgeModule, MatInputModule, MatProgressSpinnerModule } from '@angular/material';
+import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, MatCardModule, MatBadgeModule, MatInputModule, MatProgressSpinnerModule, MatMenuModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
@@ -38,6 +38,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
     MatBadgeModule,
     MatInputModule,
     MatProgressSpinnerModule,
+    MatMenuModule,
     FlexLayoutModule,
     FormsModule,
     HttpClientModule,

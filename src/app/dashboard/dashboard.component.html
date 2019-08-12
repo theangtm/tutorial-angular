@@ -1,7 +1,3 @@
-<div class="center">
-    <svg-icon src="/assets/image/undraw_hero.svg" [svgStyle]="{ 'width.px':150, 'height.px':150 }"></svg-icon>
-</div>
-
 <h3>Top Heroes</h3>
 <mat-action-list>
     <mat-list-item *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}" > {{hero.name}} </mat-list-item>
