@@ -15,7 +15,9 @@ const httpOptions = {
 
 export class HeroService {
 
-  private heroesUrl = 'api/heroes';
+  // private heroesUrl = 'api/heroes';
+  private heroesUrl = 'https://my-json-server.typicode.com/theangtm/heroes-db/data';
+
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

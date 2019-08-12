@@ -23,10 +23,15 @@
   <mat-sidenav-content style="min-height: calc(100vh - 64px)">
     <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="30px" fxLayoutAlign="center center">
       <div fxFlex="90">
-        <h1>{{title}}</h1>
+        <br/>
+        <mat-toolbar color="primary">
+          <mat-toolbar-row>
+              <span>{{title}}</span> <mat-icon>chevron_right</mat-icon> <span>{{ myTemplateVar.activatedRouteData.title }}</span>
+          </mat-toolbar-row>
+        </mat-toolbar>
         <mat-card>
           <mat-card-content>
-            <router-outlet></router-outlet>
+            <router-outlet #myTemplateVar="outlet"></router-outlet>
           </mat-card-content>
         </mat-card>
       </div>
