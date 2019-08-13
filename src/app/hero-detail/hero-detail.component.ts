@@ -1,9 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
-
+import { Globals } from '../globals';
+import { EventEmitterService } from '../event-emitter.service';
 
 @Component({
   selector: 'app-hero-detail',
@@ -18,17 +19,29 @@ export class HeroDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private heroService: HeroService,
-    private location: Location
-  ) {}
+    private location: Location,
+    private globals: Globals,
+    private eventEmitter: EventEmitterService
+  ) { }
 
   ngOnInit(): void {
     this.getHero();
+    if (this.eventEmitter.invokeSubscription === undefined) {
+      this.eventEmitter.invokeSubscription = this.eventEmitter.invokeFunction.subscribe(() =>  {
+        this.save();
+        console.log('event emit', this.hero);
+        // after initial save keeps returning same hero????
+       });
+    }
   }
 
   getHero(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.heroService.getHero(id)
-      .subscribe(hero => this.hero = hero);
+      .subscribe(hero => {
+        this.hero = hero;
+        this.globals.heroEditable = true;
+      });
   }
 
   goBack(): void {
@@ -36,6 +49,7 @@ export class HeroDetailComponent implements OnInit {
   }
 
   save(): void {
+    console.log('save hero', this.hero);
     this.heroService.updateHero(this.hero)
       .subscribe(() => this.goBack());
   }

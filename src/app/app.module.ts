@@ -16,6 +16,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 // import { InMemoryDataService } from './in-memory-data.service';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { Globals } from './globals';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,9 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
     // ),
     AngularSvgIconModule
   ],
-  providers: [],
+  providers: [
+    Globals
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

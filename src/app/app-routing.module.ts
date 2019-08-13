@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Output, EventEmitter } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HeroesComponent } from './heroes/heroes.component';

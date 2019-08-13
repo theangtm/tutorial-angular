@@ -1,11 +1,10 @@
 <mat-toolbar color="primary">
-    <mat-toolbar-row>
-        <button mat-icon-button (click)="sidenav.toggle()" aria-label="menu" >
+    <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center" fxLayoutAlign.gt-xs="start center">
+        <a mat-icon-button routerLink="/"><mat-icon>home</mat-icon></a>
+        <button mat-icon-button (click)="sidenav.toggle()" aria-label="menu" fxShow="true" fxShow.gt-xs="false">
             <mat-icon>menu</mat-icon>
         </button>
-
-        <span class="menu-spacer"></span>
-        <div>
+        <div fxShow="false" fxShow.gt-xs="true">
             <a mat-button (click)="sidenav.close()" routerLink="/dashboard">Dashboard</a>
             <a mat-button (click)="sidenav.close()" routerLink="/heroes">Heroes</a>
         </div>
@@ -21,7 +20,7 @@
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content style="min-height: calc(100vh - 64px)">
-        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="30px" fxLayoutAlign="center center">
+        <div fxLayout="row" fxLayoutAlign="center center">
             <div fxFlex="100">
                 <mat-toolbar class="card-background">
                     <svg-icon src="/assets/image/undraw_hero.svg" [svgStyle]="{ 'width.px':200, 'height.px':200 }"></svg-icon>
@@ -30,16 +29,15 @@
                 <mat-card class="card">
                     <mat-card-header class="card__header">
                         <div class="card__title">
-                            <span>{{title}}</span>
-                            <mat-icon>chevron_right</mat-icon>
+                            <span fxShow="false" fxShow.gt-xs="true">{{title}}</span>
+                            <mat-icon fxShow="false" fxShow.gt-xs="true">chevron_right</mat-icon>
                             <span>{{ myTemplateVar.activatedRouteData.title }}</span>
                         </div>
                         <div class="card__actions">
                             <mat-menu #moreMenu="matMenu">
-                                <button mat-menu-item>Settings</button>
-                                <button mat-menu-item>Help</button>
+                                <button mat-menu-item aria-label="Save" (click)="saveFunction()"><mat-icon>save</mat-icon> Save</button>
                             </mat-menu>
-                            <button mat-icon-button disabled="true" [matMenuTriggerFor]="moreMenu">
+                            <button mat-icon-button [disabled]="!globals.heroEditable" [matMenuTriggerFor]="moreMenu">
                                 <mat-icon>more_vert</mat-icon>
                             </button>
                         </div>
@@ -48,17 +46,6 @@
                         <router-outlet #myTemplateVar="outlet"></router-outlet>
                     </mat-card-content>
                 </mat-card>
-
-                <!-- <mat-toolbar color="primary">
-                    <mat-toolbar-row>
-                        <span>{{title}}</span> <mat-icon>chevron_right</mat-icon> <span>{{ myTemplateVar.activatedRouteData.title }}</span>
-                    </mat-toolbar-row>
-                </mat-toolbar>
-                <mat-card>
-                    <mat-card-content>
-                        <router-outlet #myTemplateVar="outlet"></router-outlet>
-                    </mat-card-content>
-                </mat-card> -->
             </div>
         </div>
     </mat-sidenav-content>

@@ -16,7 +16,8 @@ const httpOptions = {
 export class HeroService {
 
   // private heroesUrl = 'api/heroes';
-  private heroesUrl = 'https://my-json-server.typicode.com/theangtm/heroes-db/data';
+  // private heroesUrl = 'https://my-json-server.typicode.com/theangtm/heroes-db/data';
+  private heroesUrl = 'http://localhost:3002/data';
 
 
   private handleError<T>(operation = 'operation', result?: T) {
@@ -56,7 +57,7 @@ export class HeroService {
   }
 
   updateHero(hero: Hero): Observable<any> {
-    return this.http.put(this.heroesUrl, hero, httpOptions).pipe(
+    return this.http.put(this.heroesUrl + '/' + hero.id, hero, httpOptions).pipe(
       tap(_ => this.log(`updated hero id=${hero.id}`)),
       catchError(this.handleError<any>('updateHero'))
     );
