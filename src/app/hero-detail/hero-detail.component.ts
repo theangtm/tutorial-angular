@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Hero } from '../hero';
@@ -13,7 +13,7 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./hero-detail.component.sass']
 })
 
-export class HeroDetailComponent implements OnInit {
+export class HeroDetailComponent implements OnInit, OnDestroy {
 
   @Input() hero: Hero;
   // currentHero$ = new BehaviorSubject( );
@@ -54,6 +54,10 @@ export class HeroDetailComponent implements OnInit {
     console.log('save hero', this.hero);
     this.heroService.updateHero(this.hero)
       .subscribe(() => this.goBack());
+  }
+
+  ngOnDestroy(): void {
+    this.eventEmitter.invokeFunction.unsubscribe();
   }
 
 }
