@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import { Globals } from '../globals';
 import { EventEmitterService } from '../event-emitter.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-hero-detail',
@@ -15,6 +16,7 @@ import { EventEmitterService } from '../event-emitter.service';
 export class HeroDetailComponent implements OnInit {
 
   @Input() hero: Hero;
+  // currentHero$ = new BehaviorSubject( );
 
   constructor(
     private route: ActivatedRoute,
