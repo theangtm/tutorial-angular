@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
-import { Globals } from '../globals';
 import { EventEmitterService } from '../event-emitter.service';
 import { BehaviorSubject } from 'rxjs';
 
@@ -22,19 +21,14 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private heroService: HeroService,
     private location: Location,
-    private globals: Globals,
     private eventEmitter: EventEmitterService
   ) { }
 
   ngOnInit(): void {
     this.getHero();
-    if (this.eventEmitter.invokeSubscription === undefined) {
-      this.eventEmitter.invokeSubscription = this.eventEmitter.invokeFunction.subscribe(() =>  {
-        this.save();
-        console.log('event emit', this.hero);
-        // after initial save keeps returning same hero????
-       });
-    }
+    this.eventEmitter.invokeSubscription = this.eventEmitter.invokeFunction.subscribe(() =>  {
+      this.save();
+    });
   }
 
   getHero(): void {
@@ -42,7 +36,6 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
     this.heroService.getHero(id)
       .subscribe(hero => {
         this.hero = hero;
-        this.globals.heroEditable = true;
       });
   }
 
@@ -57,7 +50,7 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.eventEmitter.invokeFunction.unsubscribe();
+    this.eventEmitter.invokeSubscription.unsubscribe();
   }
 
 }

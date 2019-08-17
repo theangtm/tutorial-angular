@@ -31,19 +31,19 @@
                         <div class="card__title">
                             <span fxShow="false" fxShow.gt-xs="true">{{title}}</span>
                             <mat-icon fxShow="false" fxShow.gt-xs="true">chevron_right</mat-icon>
-                            <span>{{ myTemplateVar.activatedRouteData.title }}</span>
+                            <span>{{ router.activatedRouteData.title }}</span>
                         </div>
                         <div class="card__actions">
                             <mat-menu #moreMenu="matMenu">
                                 <button mat-menu-item aria-label="Save" (click)="saveFunction()"><mat-icon>save</mat-icon> Save</button>
                             </mat-menu>
-                            <button mat-icon-button [disabled]="!globals.heroEditable" [matMenuTriggerFor]="moreMenu">
+                            <button mat-icon-button [disabled]="!router.activatedRouteData.menuClickable" [matMenuTriggerFor]="moreMenu">
                                 <mat-icon>more_vert</mat-icon>
                             </button>
                         </div>
                     </mat-card-header>
                     <mat-card-content class="card__content">
-                        <router-outlet #myTemplateVar="outlet"></router-outlet>
+                        <router-outlet #router="outlet"></router-outlet>
                     </mat-card-content>
                 </mat-card>
             </div>
