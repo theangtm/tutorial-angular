@@ -4,7 +4,6 @@ import { Location } from '@angular/common';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import { EventEmitterService } from '../event-emitter.service';
-import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-hero-detail',
@@ -15,7 +14,6 @@ import { BehaviorSubject } from 'rxjs';
 export class HeroDetailComponent implements OnInit, OnDestroy {
 
   @Input() hero: Hero;
-  // currentHero$ = new BehaviorSubject( );
 
   constructor(
     private route: ActivatedRoute,

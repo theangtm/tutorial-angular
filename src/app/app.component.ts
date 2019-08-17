@@ -14,7 +14,7 @@ export class AppComponent {
 
     constructor(private eventEmitter: EventEmitterService ) { }
 
-    saveFunction() {
+    saveHeroFunction() {
         this.eventEmitter.saveHero();
     }
 }

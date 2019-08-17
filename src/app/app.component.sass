@@ -1,4 +1,17 @@
+@import '~@angular/material/theming'
+
+$primary: mat-palette($mat-indigo)
+$secondary: mat-palette($mat-grey, 100)
+$accent:  mat-palette($mat-pink, 50)
+    
 $header-height: 64px
+
+@keyframes slideArrow
+  0%,
+  100% 
+    transform: translate(0, 0)
+  50%
+    transform: translate(10px, 0)
 
 .center
     text-align: center
@@ -6,6 +19,14 @@ $header-height: 64px
     flex: 1 1 auto
 .sidenav
     width: 200px
+    mat-icon
+        display: none
+        margin-right: 16px
+        margin-left: -16px
+    .is-active
+        mat-icon
+            display: inline-block
+            animation: slideArrow 1s ease-in-out infinite
 .card-background
     margin-top: $header-height
     text-align: center
