@@ -5,13 +5,18 @@ import { Subscription } from 'rxjs';
   providedIn: 'root'
 })
 export class EventEmitterService {
-  invokeFunction = new EventEmitter();
-  invokeSubscription: Subscription;
+  invokeFunctionSave = new EventEmitter();
+  invokeFunctionDelete = new EventEmitter();
+  invokeSubscriptionSave: Subscription;
+  invokeSubscriptionDelete: Subscription;
 
   constructor() { }
 
   saveHero() {
-    this.invokeFunction.emit();
-    console.log('saveHero');
+    this.invokeFunctionSave.emit();
+  }
+
+  deleteHero() {
+    this.invokeFunctionDelete.emit();
   }
 }

@@ -1,10 +1,20 @@
 <h2 class="mat-h1">My Heroes</h2>
-<mat-action-list role="list">
+<mat-action-list role="list" class="list-heroes">
     <mat-list-item *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}" role="listitem" >
-        <a mat-flat-button color="primary" > {{hero.id}} </a>
+        <button mat-flat-button color="primary" > {{hero.id}} </button>
         <span matLine > {{hero.name}} </span>
+        <button mat-flat-button color="warn" title="Delete hero" (click)="delete(hero)"><mat-icon>delete</mat-icon></button>
     </mat-list-item>
 </mat-action-list>
+
+<mat-divider></mat-divider>
+
+<div class="heroAdd-wrapper">
+    <mat-form-field>
+        <input matInput placeholder="Hero name" #heroName />
+    </mat-form-field>
+    <button mat-stroked-button aria-label="Add" (click)="add(heroName.value); heroName.value=''">Add</button>
+</div>
 
 <div fxLayout="row" fxLayoutAlign="center center" style="min-height: 480px;" *ngIf="!heroes">
     <mat-progress-spinner  color="primary" mode="indeterminate"></mat-progress-spinner>

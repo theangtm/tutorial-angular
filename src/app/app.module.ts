@@ -5,7 +5,17 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, MatCardModule, MatBadgeModule, MatInputModule, MatProgressSpinnerModule, MatMenuModule } from '@angular/material';
+import { MatToolbarModule,
+  MatIconModule,
+  MatSidenavModule,
+  MatListModule,
+  MatButtonModule,
+  MatCardModule,
+  MatBadgeModule,
+  MatInputModule,
+  MatProgressSpinnerModule,
+  MatMenuModule,
+  MatDividerModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
@@ -13,10 +23,9 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 // import { InMemoryDataService } from './in-memory-data.service';
 import { AngularSvgIconModule } from 'angular-svg-icon';
-import { Globals } from './globals';
 
 @NgModule({
   declarations: [
@@ -40,6 +49,7 @@ import { Globals } from './globals';
     MatInputModule,
     MatProgressSpinnerModule,
     MatMenuModule,
+    MatDividerModule,
     FlexLayoutModule,
     FormsModule,
     HttpClientModule,
@@ -49,7 +59,6 @@ import { Globals } from './globals';
     AngularSvgIconModule
   ],
   providers: [
-    Globals
   ],
   bootstrap: [AppComponent]
 })

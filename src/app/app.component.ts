@@ -17,4 +17,8 @@ export class AppComponent {
     saveHeroFunction() {
         this.eventEmitter.saveHero();
     }
+
+    deleteHeroFunction() {
+      this.eventEmitter.deleteHero();
+  }
 }

@@ -36,6 +36,7 @@
                         <div class="card__actions">
                             <mat-menu #moreMenu="matMenu">
                                 <button mat-menu-item aria-label="Save" (click)="saveHeroFunction()"><mat-icon>save</mat-icon> Save</button>
+                                <button mat-menu-item aria-label="Delete" (click)="deleteHeroFunction()"><mat-icon>delete</mat-icon> Delete</button>
                             </mat-menu>
                             <button mat-icon-button [disabled]="!router.activatedRouteData.menuClickable" [matMenuTriggerFor]="moreMenu">
                                 <mat-icon>more_vert</mat-icon>

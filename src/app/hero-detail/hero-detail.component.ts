@@ -24,8 +24,11 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getHero();
-    this.eventEmitter.invokeSubscription = this.eventEmitter.invokeFunction.subscribe(() =>  {
+    this.eventEmitter.invokeSubscriptionSave = this.eventEmitter.invokeFunctionSave.subscribe(() =>  {
       this.save();
+    });
+    this.eventEmitter.invokeSubscriptionDelete = this.eventEmitter.invokeFunctionDelete.subscribe(() =>  {
+      this.delete();
     });
   }
 
@@ -42,13 +45,18 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
   }
 
   save(): void {
-    console.log('save hero', this.hero);
     this.heroService.updateHero(this.hero)
       .subscribe(() => this.goBack());
   }
 
+  delete(): void {
+    this.heroService.deleteHero(this.hero)
+      .subscribe(() => this.goBack());
+  }
+
   ngOnDestroy(): void {
-    this.eventEmitter.invokeSubscription.unsubscribe();
+    this.eventEmitter.invokeSubscriptionSave.unsubscribe();
+    this.eventEmitter.invokeSubscriptionDelete.unsubscribe();
   }
 
 }
